@@ -1,45 +1,104 @@
+/* App */
 .App {
-  text-align: center;
-}
-.App code {
-  background: #FFF3;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.App p {
-  margin: 0.4rem;
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 0 10vmin;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff8e7;
+  background-color: #282c34;
 }
 
-.App-link {
+.App.loading {
+  justify-content: center;
+  text-align: center;
+}
+
+p {
+  margin: 0.4rem 0;
+}
+
+a {
   color: #61dafb;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+h1::before {
+  content: '📼';
+  margin-right: 0.4rem;
+}
+
+/* Header & footer */
+header,
+footer {
+  padding: 2vmin 0;
+}
+
+/* Main */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vmin;
+  flex-grow: 1;
+}
+
+main > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+main video,
+main img {
+  margin: 2vmin 0;
+  width: 100%;
+  max-width: 425px;
+}
+
+.custom-file-input {
+  color: transparent;
+  max-width: 80.39px;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Upload';
+  -webkit-user-select: none;
+}
+
+.custom-file-input::before,
+button,
+a[download] {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 4px 8px;
+  border: none;
+  outline: none;
+  color: #282c34;
+  background-color: #61dafb;
+  white-space: nowrap;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: calc(10px + 1vmin);
+  transition: transform 0.2s;
+}
+
+.custom-file-input:active::before,
+button:active,
+a:active[download] {
+  transform: translateY(0.25vmin);
+}
+
+button:disabled {
+  filter: grayscale(0.9);
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
   }
 }
