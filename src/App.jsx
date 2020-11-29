@@ -41,7 +41,7 @@ function App() {
   const AppHeader = () => {
     return (
       <header>
-        <h1>gifmakr</h1>
+        <h1>gif-maker</h1>
         <div>
           <p className="lead">Upload a video file and convert it to gif.</p>
           <p className="links">
